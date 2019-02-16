@@ -17,7 +17,7 @@ module.exports = {
         use: [
           {
             loader: 'html-loader',
-            options: {minimize: true}
+            options: { minimize: true }
           }
         ]
       },
@@ -26,12 +26,7 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader',
-            options: {
-              minimize: {
-                safe: true
-              }
-            }
+            loader: 'css-loader'
           },
           {
             loader: 'postcss-loader',
@@ -39,10 +34,8 @@ module.exports = {
               autoprefixer: {
                 browsers: ['last 2 versions']
               },
-              plugins: () => [
-                autoprefixer
-              ]
-            },
+              plugins: () => [autoprefixer]
+            }
           },
           {
             loader: 'sass-loader',
