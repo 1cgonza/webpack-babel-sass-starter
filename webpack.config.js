@@ -1,10 +1,14 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
+const path = require('path');
 
 module.exports = (env, options) => {
   return {
     devtool: options.mode === 'development' ? 'eval-source-map' : false,
+    devServer: {
+      contentBase: path.join(__dirname, 'dist')
+    },
     module: {
       rules: [
         {
