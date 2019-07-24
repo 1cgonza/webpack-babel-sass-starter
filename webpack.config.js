@@ -2,6 +2,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const path = require('path');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = (env, options) => {
   return {
@@ -50,6 +51,9 @@ module.exports = (env, options) => {
           ]
         }
       ]
+    },
+    optimization: {
+      minimizer: [new OptimizeCSSAssetsPlugin({})]
     },
     plugins: [
       new HtmlWebPackPlugin({
