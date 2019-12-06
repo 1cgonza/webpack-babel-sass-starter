@@ -45,8 +45,7 @@ module.exports = (env, options) => {
               }
             },
             {
-              loader: 'sass-loader',
-              options: {}
+              loader: 'sass-loader'
             }
           ]
         }
