@@ -5,11 +5,11 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    app: './src/index.js'
+    app: './src/index.js',
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
@@ -17,46 +17,45 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.html$/,
         use: [
           {
             loader: 'html-loader',
-            options: { minimize: true }
-          }
-        ]
+            options: { minimize: true },
+          },
+        ],
       },
       {
         test: /\.(scss|css)$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader'
+            loader: 'css-loader',
           },
           {
             loader: 'postcss-loader',
             options: {
-              autoprefixer: {
-                browsers: ['last 2 versions']
+              postcssOptions: {
+                plugins: ['postcss-preset-env'],
               },
-              plugins: () => [autoprefixer]
-            }
+            },
           },
           {
-            loader: 'sass-loader'
-          }
-        ]
-      }
-    ]
+            loader: 'sass-loader',
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/index.html',
-      filename: './index.html'
+      filename: './index.html',
     }),
-    new MiniCssExtractPlugin()
-  ]
+    new MiniCssExtractPlugin(),
+  ],
 };
