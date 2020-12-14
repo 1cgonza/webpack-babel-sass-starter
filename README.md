@@ -1,3 +1,3 @@
-# Webpack, Babel and SASS starter
+# Plantilla: Webpack, Babel y SASS
 
-Minimal config to start projects and experiments
+Configuración básica para iniciar proyectos y experimentos.

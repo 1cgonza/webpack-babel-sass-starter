@@ -1,6 +1,4 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const autoprefixer = require('autoprefixer');
 const path = require('path');
 
 module.exports = {
@@ -8,7 +6,9 @@ module.exports = {
     app: './src/index.js',
   },
   output: {
-    filename: '[name].js',
+    publicPath: './',
+    filename: '[name].[fullhash].js',
+    chunkFilename: '[name].[fullhash].js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
@@ -30,22 +30,15 @@ module.exports = {
         ],
       },
       {
-        test: /\.(scss|css)$/,
+        test: /\.(png|svg|jpg|gif)$/,
         use: [
-          MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'postcss-loader',
+            loader: 'file-loader',
             options: {
-              postcssOptions: {
-                plugins: ['postcss-preset-env'],
-              },
+              name: '[name].[contenthash].[ext]',
+              outputPath: 'imgs/',
+              publicPath: 'imgs/',
             },
-          },
-          {
-            loader: 'sass-loader',
           },
         ],
       },
@@ -56,6 +49,5 @@ module.exports = {
       template: './src/index.html',
       filename: './index.html',
     }),
-    new MiniCssExtractPlugin(),
   ],
 };
