@@ -3,10 +3,10 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    app: './src/index.js',
+    programa: './src/index.js',
   },
   output: {
-    publicPath: './',
+    publicPath: '/',
     filename: '[name].[fullhash].js',
     chunkFilename: '[name].[fullhash].js',
     path: path.resolve(__dirname, 'dist'),
