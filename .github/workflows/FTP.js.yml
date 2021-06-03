@@ -1,5 +1,3 @@
-name: Desplegar sitio al servidor
-
 on:
   push:
     branches: [ master ]
