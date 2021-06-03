@@ -1,0 +1,36 @@
+name: Desplegar sitio al servidor
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: 🐘 Desplegar
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 🐯 Obtener código del repositorio
+    - uses: actions/checkout@v2
+    
+    - name: 🐝 Usar Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: 🔨 Hacer build
+      run: |
+        npm install
+        npm run build
+    
+    - name: 🦅 Enviar por FTP
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: ftp.moebiusanimacion.com
+        username: trampant
+        server-dir: public_html/webpack-demo/
+        local-dir: ./build/
+        password: ${{ secrets.clave }}
+        dry-run: true
