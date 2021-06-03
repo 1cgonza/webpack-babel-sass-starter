@@ -29,6 +29,6 @@ jobs:
         server: ftp.moebiusanimacion.com
         username: trampant
         server-dir: public_html/webpack-demo/
-        local-dir: ./build/
+        local-dir: ./dist/
         password: ${{ secrets.clave }}
         dry-run: true
