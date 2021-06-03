@@ -31,4 +31,3 @@ jobs:
         server-dir: public_html/webpack-demo/
         local-dir: ./dist/
         password: ${{ secrets.clave }}
-        dry-run: true
