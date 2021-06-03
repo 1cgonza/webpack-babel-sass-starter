@@ -30,5 +30,5 @@ jobs:
         username: trampant
         server-dir: public_html/webpack-demo/
         local-dir: ./build/
-        password: ${{ secretos.clave }}
+        password: ${{ secrets.clave }}
         dry-run: true
