@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: 🐯 Obtener código del repositorio
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
     
     - name: 🐝 Usar Node
       uses: actions/setup-node@v2
